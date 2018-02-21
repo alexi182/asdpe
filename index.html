@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Автоматизированная информационная система сбора, анализа и представления информации о реализации дополнительного профессионального образования и профессионального обучения в Российской Федерации</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/bundles/iphpcore/js/select2/select2.css">
+
+    <link href="/bootstrap/css/bootstrap-default.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        //padding-bottom: 40px;
+        }
+
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        h1 {
+            font-size: 30px
+        }
+        /* убираем стрелки у input[type=number] */
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0px;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <link href="/bootstrap/css/bootswatch.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bundles/iphpcore/js/themes/flick/jquery-ui-1.8.16.custom.css" type="text/css" media="all" />
+
+    <script src="/bundles/iphpcore/js/jquery.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/bundles/iphpcore/js/select2/select2.js"></script>
+    <script src="/bundles/stfalcontinymce/vendor/tinymce/tinymce.min.js"></script>
+
+    <script src="/bundles/iphpcore/js/jquery-ui.js" type="text/javascript"></script>
+    <script src="/bundles/iphpcore/js/jquery-ui-i18n.js" type="text/javascript"></script>
+    <script src="/js/noScrollNumber.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container" style="width: 1200px;">
+
+            <a class="brand" href="/"><i class="icon-home icon-black"></i></a>
+
+            <div class="btn-group  pull-right">
+
+                <a class="btn" href="/office/"><i
+                        class="icon-user"></i>
+                    Вход в личный кабинет</a>
+
+            </div>
+
+            <div id="main-menu" class="nav-collapse collapse">
+
+                <ul class="nav" id="main-menu-left">
+
+                    <li><a href="/about/">О проекте</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Непрерывное образование <b class="caret"></b></a>
+                        <ul class="dropdown-menu" id="swatch-menu">
+                            <li><a href="/contedu/about/">Общая информация</a></li>
+                            <li><a href="/contedu/webinars/">Вебинары</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/doc/">Документы</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Регистрация <b class="caret"></b></a>
+                        <ul class="dropdown-menu" id="swatch-menu">
+                            <li><a href="/register/org/">Новая организация</a></li>
+                            <li><a href="/register/contact/">Ответственный представитель</a></li>
+                            <li><a href="/remind/password">Восстановление пароля</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Помощь <b class="caret"></b></a>
+                        <ul class="dropdown-menu" id="swatch-menu">
+                            <li><a href="/help/instruct-1-pk/">Указания по заполнению формы №1-ПК</a></li>
+                            <li><a href="/help/instruct-po/">Указания по заполнению формы №ПО</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/files/contentfile/6/tutorial-operator-2016.pdf">Руководство пользователя</a></li>
+                            <li><a href="/help/faq/">Ответы на вопросы (FAQ)</a></li>
+                            <li><a href="/help/instruct-brief/">Краткая инструкция пользователя</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section id="main">
+
+        <div style="padding-top: 0px; margin-right: 0px;">
+            <img src="/img/minobr-logo.png" align="left" style="margin-right: 20px;">
+            <h3>Автоматизированная информационная система сбора, анализа и представления информации о реализации дополнительного профессионального образования и профессионального обучения в Российской Федерации</h3>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        <hr>
+
+        <div class="row">
+            <div class="span4">
+                <div class="well" style="width: 260px;">
+                    <style>
+                        div.rmbme label {
+                            display: inline;
+                        }
+                    </style>
+
+                    <form action="/login_check" method="post" onSubmit="$('#_submit').val ('Выполняется авторизация ...').attr('disabled','disabled');">
+
+                        <label for="username">Имя пользователя:</label>
+                        <input type="text" id="username" name="_username" value="" required="required" />
+
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="_password" required="required" />
+
+                        <div class="rmbme">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="margin-bottom: 3px" />
+                            <label for="remember_me">Запомнить меня</label>
+                        </div>
+
+                        <a href="/remind/password">Забыли пароль?</a>
+                        <br>
+
+                        <br>
+                        <input class="btn  btn-primary" type="submit" id="_submit" name="_submit" value="Войти" />
+                    </form>
+                </div>
+                <div class="row" style="margin-right: 10px;">
+
+                    <a href="../../../../register/contact/">Регистрация ответственного лица &raquo;</a>&nbsp;
+                    <br />
+                    <a href="../../../../register/org/">Регистрация новой организации &raquo;</a>&nbsp;
+                    <br />
+                    <hr size="1" />
+
+                    <div class="well">
+                        <strong>Контакты службы сопровождения</strong>
+                        <br />
+                        <br /> e-mail: <a href="mailto:as-dpe@mon.gov.ru">as-dpe@mon.gov.ru</a>&nbsp;
+                        <br /> тел.: 8 (495) 969-26-17 доб. 1204
+                        <br /> тел.: 8 (495) 969-26-17 доб. 1614
+                        <br /> моб.: 8 (916) 511-23-91
+                        <br/>
+                        <br>По вопросам регистрации, изменения сведений об организации и ответственном лице:
+                        <br/> тел.: 8 (495) 969-26-17 доб. 1621
+                        <br /> тел.: 8 (495) 969-26-17 доб. 1604
+                        <br />
+                        <br/>пн-пт: 9:00-18:00 (время московское)
+                        <br />
+                        <br>Предпочтительный способ обращения - электронная почта
+                    </div>
+
+                    <hr size="1" />
+                    <p align="center">
+                        <a href="/help/faq/"><img src="../../../../files/contentimage/6/faq.jpg" border=0 alt="" /></a>
+                    </p>
+                    <hr size="1" />
+
+                    <img src="../../../../files/contentimage/6/pdf.gif" alt="" />&nbsp;<a href="../../../../../files/contentfile/6/tutorial-operator-2016.pdf">Руководство пользователя (оператора организации) &raquo;</a>&nbsp;
+                    <br />
+                    <br />
+                    <img src="../../../../files/contentimage/6/pdf.gif" alt="" />&nbsp;<a href="../../../../../files/contentfile/6/tutorial-regoperator-2017.pdf">Руководство пользователя (регионального оператора) &raquo;</a>&nbsp;
+                    <br />
+                    <br />
+                    <img src="../../../../files/contentimage/6/pdf.gif" alt="" />&nbsp;<a href="../../../../../files/contentfile/6/tutorial-foperator-2017.pdf">Руководство пользователя (федерального оператора) &raquo;</a>&nbsp;
+                    <br />
+                    <br />
+
+                    <!--<img src="../../../../files/contentimage/6/html.gif" alt="" />&nbsp;<a href="../../../../../help/instruct-brief/">Краткая инструкция по работе в системе оператора организации &raquo;</a> <br /><br />-->
+
+                    <!--<a href="../../../../../help/faq/"><font color="red"><b>Ответы на часто задаваемые вопросы &raquo;</a></b></font> <br /> <br />-->
+                    <a href="../../../../help/instruct-1-pk/">Указания по заполнению формы №1-ПК &raquo;</a>
+                    <br />
+                    <a href="../../../../help/instruct-po/">Указания по заполнению формы №ПО &raquo;</a>
+                    <br />
+
+                    <hr size="1" />
+                    <b>Внимание!</b> Рекомендуемые для работы в системе браузеры: Internet Explorer (версия старше 8), Mozilla Firefox, Google Chrome. Не рекомендуется к использованию браузеры Microsoft Edge и Opera.
+
+                    <!--<hr size="1" />
+<a href="http://www.informika.ru" target="_blank"><img src="../../../../../files/contentimage/2/logo-informika.png" alt="" border="0" /></a>-->
+
+                </div>
+            </div>
+
+            <div id="right" class="row offset4">
+                <style type="text/css">
+                    @media screen and (max-width: 1100px) {
+                        #news {
+                            display: none;
+                        }
+                        #right {
+                            margin-left: 0px;
+                        }
+                        h3 {
+                            font-size: 14px;
+                        }
+                        .span4 {
+                            display: none;
+                        }
+                    }
+                </style>
+
+                <p align="justify"><strong>Цель создания и развития системы</strong> - повышение оперативности, эффективности и качества сбора, анализа и представления статистической информации о реализации дополнительных профессиональных программ и основных программ профессионального обучения в Российской Федерации на базе организаций, осуществляющих образовательную деятельность, для выработки решений по управлению сферой дополнительного профессионального образования (ДПО) и профессионального обучения в соответствии с требованиями современного рынка труда, а также по сохранению и развитию кадрового потенциала страны.</p>
+
+                <div id="news" class="cms-block cms-container cms-container-root" style="float: right;">
+                    <div id="cms-block-7" class="cms-block cms-block-element">
+
+                        <video width="375" height="211" controls>
+                            <source src="/files/contentfile/15/monitoring-dpo-small.mp4" type="video/mp4"> Скачать <a href="/files/contentfile/15/monitoring-dpo-small.mp4">видеоролик</a>
+                        </video>
+                        <br><a href="http://as-dpe.mon.gov.ru/help/video/">Видеоролик в высоком разрешении &raquo; </a>
+
+                        <!--<div id="myCarousel" class="carousel slide" style="width: 100%; background-color: #f5f5f5;">
+<div class="carousel-inner" style="text-align: center;">
+<div class="item active" style="padding: 0 0;"><a href="http://минобрнауки.рф/пресс-центр/9427" target="_blank"><img style="padding: 0px; height: 250px;" src="http://минобрнауки.рф/media/events/photos/big/41d4525a7ce77e6f7357.png" alt="" /></a>
+<div class="carousel-caption">
+<h4>19 января 2017 г.</h4>
+<p>15 февраля завершается сбор сведений в автоматизированную систему от организаций, осуществляющих образовательную деятельность по основным программам проф. обучения и дополнительным профессиональным программам</p>
+</div>
+</div>
+<div class="item" style="padding: 0 0;"><a href="http://минобрнауки.рф/%D0%BF%D1%80%D0%B5%D1%81%D1%81-%D1%86%D0%B5%D0%BD%D1%82%D1%80/9237" target="_blank"><img style="padding: 0px; height: 250px;" src="http://as-dpe.mon.gov.ru/files/contentimage/6/icon-to-webinar.jpg" alt="" /></a>
+<div class="carousel-caption">
+<h4>10 декабря 2016 г.</h4>
+<p>Минобрнауки России проводит совещание в форме вебинара "Совершенствование механизмов статистического учета по ДПО и профессиональному обучению"</p>
+</div>
+</div>
+<div class="item" style="padding: 0 0;"><a href="http://минобрнауки.рф/пресс-центр/8849" target="_blank"><img style="padding: 0px; height: 250px;" src="http://минобрнауки.рф/media/events/photos/big/41d4525a7ce77e6f7357.png" alt="" /></a>
+<div class="carousel-caption">
+<h4>30 сентября 2016 г.</h4>
+<p>Началась подготовка педагогов системы СПО к реализации новых ФГОС</p>
+</div>
+</div>
+<div class="item" style="padding: 0 0;"><a href="http://минобрнауки.рф/пресс-центр/8745" target="_blank"><img style="padding: 0px; height: 250px;" src="http://минобрнауки.рф/media/events/photos/big/41d5f21176e7814168a0.jpeg" alt="" /></a>
+<div class="carousel-caption">
+<h4>1 сентября 2016 г.</h4>
+<p>Объявлен конкурсный отбор управленческих команд, которые займутся профессиональной подготовкой кадров по 50 наиболее востребованным и перспективным профессиям и специальностям СПО</p>
+</div>
+</div>
+<div class="item" style="padding: 0 0;"><a href="http://минобрнауки.рф/пресс-центр/8308" target="_blank"><img style="padding: 0px; height: 250px;" src="http://минобрнауки.рф/media/events/photos/big/41d5d1ae5fee05e27b4d.jpg" alt="" /></a>
+<div class="carousel-caption">
+<h4>26 мая 2016 г.</h4>
+<p>Начинается внедрение новых программ повышения квалификации учителей русского языка и литературы</p>
+</div>
+</div>
+<div class="item" style="padding: 0 0;"><a href="http://минобрнауки.рф/пресс-центр/7841" target="_blank"><img style="padding: 0px; height: 250px;" src="http://минобрнауки.рф/media/events/photos/big/41d4525a7ce77e6f7357.png" alt="" /></a>
+<div class="carousel-caption">
+<h4>15 февраля 2016 г.</h4>
+<p>Протокол заседания конкурсной комиссии № 1/2016 от 11 февраля 2016 г. по проведению конкурсного отбора ДПП повышения квалификации инженерно-технических кадров</p>
+</div>
+</div>
+<div class="item" style="padding: 0 0;"><a href="http://минобрнауки.рф/пресс-центр/7811" target="_blank"><img style="padding: 0px; height: 250px;" src="http://минобрнауки.рф/media/events/photos/big/41d4525a7ce77e6f7357.png" alt="" /></a>
+<div class="carousel-caption">
+<h4>4 февраля 2016 г.</h4>
+<p>Протокол № 1/2016 от 2 февраля 2016 г. заседания Экспертной комиссии по реализации ведомственной целевой программы «Повышение квалификации инженерно-технических кадров на 2015-2016 годы»</p>
+</div>
+</div>
+</div>
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a></div>
+<script type="text/javascript" language="javascript">// <![CDATA[
+$(document).ready(function StartCarousel() {
+$('.carousel').carousel()
+    });
+// ]]></script>
+-->
+
+                    </div>
+                </div>
+
+                <p><span style="text-decoration: underline;"><strong>Основные задачи системы:</strong></span>
+                <ul>
+                    <li>автоматизация сбора, обработки и комплексного анализа статистической информации о реализации дополнительных профессиональных программ и основных программ профессионального обучения в Российской Федерации (на основании форм федерального статистического наблюдения №1-ПК и №ПО)</li>
+                    <li>автоматизация вычисления и контроля статистических показателей функционирования сферы ДПО и профессионального обучения на основе аккумулированных данных</li>
+                    <li>консолидация статистических данных и формирование статистической отчётности на уровне федеральных органов исполнительной власти и региональных органов управления образованием субъектов Российской Федерации</li>
+                    <li>формирование на основании статистических данных пополняемого перечня аналитических отчетов разных типов и их последующий анализ</li>
+                    <li>обеспечение персонализированной работы в системе разных категорий пользователей и предоставление наборов сервисов в соответствии с ролевым профилем в системе личных кабинетов</li>
+                </ul>
+
+                <hr size="1" />
+                <!--
+<p align="justify" class="well">Минобрнауки России проводит <font color="red"><b>совещание в форме вебинара "Анализ и обобщение результатов предоставления статистических данных по формам федерального статистического наблюдения №1-ПК и №ПО за 2016 год"</b></font> для ответственных лиц органов государственной власти субъектов Российской Федерации в сфере образования, курирующих дополнительное профессиональное образование и профессиональное обучение, а также предоставление информации по формам федерального статистического наблюдения №1-ПК "Сведения о деятельности организации, осуществляющей образовательную деятельность по дополнительным профессиональным программам" и №ПО "Сведения о деятельности организации, осуществляющей образовательную деятельность по основным программам профессионального обучения".
+<br>Совещание состоится 22 марта 2017 г. в 11.00 (по московскому времени).
+<br>Трансляция совещания будет осуществляться в сети Интернет по адресу: <a target=_blank href="http://минобрнауки.рф/открытое_министерство/прямые-трансляции">http://минобрнауки.рф/открытое_министерство/прямые-трансляции</a></p>
+-->
+
+                <p align="justify">Материалы совещания в форме вебинара 15.12.2016 г. <b>"Совершенствование механизмов статистического учета по дополнительному профессиональному образованию и профессиональному обучению"</b> (при использовании форм и содержания презентаций, просьба указывать источник):
+                <ul>
+                    <li><i>Троцак Алексей Иванович</i>, начальник отдела, Департамент государственной политики в сфере подготовки рабочих кадров и ДПО Минобрнауки России <a href="/files/contentfile/10/trocak.pdf">"О целях проводимого мониторинга"</a></li>
+                    <li><i>Спорыхина Наталья Борисовна</i>, заместитель начальника Управления статистики образования, науки и инноваций Росстата <a href="/files/contentfile/10/sporyhina.pdf">"Ответственность организаций, осуществляющих образовательную деятельность, за предоставление сведений по формам федерального статистического наблюдения"</a></li>
+                    <li><i>Шугаль Николай Борисович</i>, заместитель директора Центра статистики и мониторинга образования Института статистических исследований и экономики знаний НИУ "ВШЭ" <a href="/files/contentfile/10/sugal.pdf">"Особенности формирования и заполнения форм статистического наблюдения №1-ПК и №ПО"</a></li>
+                    <li><i>Абрамов Алексей Геннадьевич</i>, заместитель директора Филиала ФГАУ ГНИИ ИТТ "Информика" в г. Санкт-Петербурге <a href="/files/contentfile/10/abramov.pdf">"Автоматизированная информационная система сбора, анализа и представления информации о функционировании системы дополнительного профессионального образования и профессионального обучения в Российской Федерации: техническое сопровождение и поддержка процесса сбора"</a></li>
+                </ul>
+                </p>
+
+                <hr size=1>
+
+                <!--<p align="justify" style="border: 1px solid red; padding: 5px;"><font color="red" style="text-transform : uppercase; "><b>Уважаемые руководители и ответственные представители организаций! Сбор статистических данных за 2016 год по формам №1-ПК и №ПО по согласованию с Минобрнауки России продлен до 13 марта 2017 года включительно.</b></font></p>-->
+
+                <p align="justify" class="well"><img src="../../../../files/contentimage/6/pdf.gif" alt="" />&nbsp;<a href="/files/contentfile/10/prikaz-1pk-1po.pdf">Приказом Росстата №409 от 10 августа 2016 г.</a> утвержден статистический инструментарий для организации Минобрнауки России федерального статистического наблюдения за деятельностью организаций, осуществляющих образовательную деятельность по дополнительным профессиональным программам (форма №1-ПК) и организаций, осуществляющих образовательную деятельность по основным программам профессионального обучения (форма №ПО). Соответствующие формы федерального статистического наблюдения (ФСН) с указаниями по их заполнению введены в действие с отчета за 2016 год.
+                    <br>
+
+                <p align="justify" class="well"><font color="red"><b>Вниманию руководителей и ответственных представителей организаций!</b></font>
+                    <br>Система открыта для сбора статистических данных по формам №1-ПК и №ПО за 2017 отчетный год.
+                    <br>Сбор (занесение) статистических данных по формам №1-ПК и №ПО за 2017 отчетный год в настоящее время производится в электронном виде непосредственно на данном сайте в личном кабинете пользователя через экранные веб-формы. Данные, представленные в виде файлов Excel, не принимаются!
+                    <br>Срок завершения сдачи отчетности - <font color="red"><b>15 февраля 2018 года включительно (сбор статистики продолжен, ориентировочно - до конца февраля)</b></font>.
+
+                <p align="justify" style="border: 1px solid red; padding: 5px;"><a href="../../../../../help/faq/"><font color="red" style="text-transform : uppercase;"><b>ОТВЕТЫ НА ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ &raquo;</b></font></a></p>
+
+                <p align="justify" class="well">Обращаем внимание, что ежегодный сбор статистических сведений об обучении в организациях, осуществляющих образовательную деятельность по дополнительным профессиональным программам, <a target=_blank href="http://www.consultant.ru/document/cons_doc_LAW_212544/f62ee45faefd8e2a11d6d88941ac66824f848bc2/">Распоряжением Правительства РФ от 07.02.2017 N 213-р  "О внесении изменений в распоряжение Правительства РФ от 06.05.2008 N 671-р"</a> включен в Федеральный план статистических работ.</p>
+
+                <p align="justify" class="well"><font color="red"><b>Файлы для скачивания в помощь представителям организаций</b></font>
+                    <br>
+                    <br>
+                    <img src="../../../../files/contentimage/6/pdf.gif" alt="" />&nbsp;<a href="/files/contentfile/10/prikaz-1pk-1po.pdf">Формы ФСН №1-ПК и №ПО и указания по их заполнению (из приказа Росстата от 2016 г.) &raquo;</a>
+                    <br>
+                    <br>Статистические формы ФСН №1-ПК и №ПО в редакции 2017 года (представлены в ознакомительных целях и для подготовки к сбору статистики в системе за 2017 год):
+                    <br><img src="../../../../files/contentimage/6/word.gif" alt="" />&nbsp;<a href="/files/contentfile/6/proekt-formy-1-pk.doc">Форма №1-ПК и указания по ее заполнению (2017 год) &raquo;</a>
+                    <br><img src="../../../../files/contentimage/6/word.gif" alt="" />&nbsp;<a href="/files/contentfile/6/proekt-formy-po.doc">Форма №ПО и указания по ее заполнению (2017 год) &raquo;</a>
+                    <br>
+                    <br><img src="../../../../files/contentimage/6/html.gif" alt="" />&nbsp;<a target=_blank href="https://rg.ru/2013/08/21/professii-dok.html">Приказ Минобрнауки России от 02.07.2013 N 513 "Об утверждении Перечня профессий рабочих, должностей служащих, по которым осуществляется профессиональное обучение" (офиц. публикация в "Российской газете") &raquo;</a>
+                    <br><img src="../../../../files/contentimage/6/word.gif" alt="" />&nbsp;<a href="/files/contentfile/10/prikaz-02-07-13.docx">Приказ Минобрнауки России от 02.07.2013 N 513 (ред. от 03.02.2017) &raquo; </a>
+                    <br>
+                    <br><img src="../../../../files/contentimage/6/word.gif" alt="" />&nbsp;<a href="/files/contentfile/10/authorization-example.docx">Пример файла с подтверждением полномочий пользователя и корректности введенных данных &raquo;</a>
+
+                    <!--<p><img src="../../../../files/contentimage/6/pdf.gif" alt="" />&nbsp;<span style="text-decoration: underline;"><strong>Письма Минобрнауки России "О предоставлении статистических данных по формам ФСН №1-ПК и №ПО за 2016 отчетный год":</strong></span></p>
+<ul>
+<li>руководителям организаций, подведомственным Министерству образования и науки Российской Федерации - <a href="/files/contentfile/10/lo-1745-06.pdf">№ЛО-1745/06 от 29 ноября 2016 г.</a></li>
+<li>в органы исполнительной власти субъектов Российской Федерации, осуществляющих управление в сфере образования - <a href="/files/contentfile/10/lo-1746-06.pdf">№ЛО-1746/06 от 30 ноября 2016 г.</a></li>
+<li>в федеральные органы исполнительной власти Российской Федерации - <a href="/files/contentfile/10/lo-1748-06.pdf">№ЛО-1748/06 от 30 ноября 2016 г.</a></li>
+</ul>
+-->
+            </div>
+
+        </div>
+
+        <div class="row">
+            <hr>
+            <footer id="footer">
+                <p class="pull-right"><a href="#top">Наверх</a></p>
+                <div class="links">
+                    © 2014-2018 <a href="http://минобрнауки.рф" style="margin: 0px;">Минобрнауки России</a>, <a href="http://www.informika.ru">ФГАУ ГНИИ ИТТ "Информика"</a>
+                </div>
+            </footer>
+        </div>
+
+    </section>
+
+</div>
+
+<script src="/bundles/iphpcore/bootstrap/js/bootstrap.js"></script>
+<script src="/js/bootbox.js"></script>
+
+<script>
+    $(function() {
+        $('#password').bind('input', function() {
+            $(this).val(function(_, v) {
+                return $.trim(v);
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>

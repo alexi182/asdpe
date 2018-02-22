@@ -6265,15 +6265,7 @@ a.badge:focus {
     background-color: #ddd;
 }
 
-.navbar .nav > li > .dropdown-menu:before {
-    display: none;
-}
-
-.navbar .nav > li > .dropdown-menu:after {
-    display: none;
-}
-
-@media (min-width: 768px){
+@media (min-width: 1001px){
     .navbar-toggle {
         display: none;
     }
@@ -6313,9 +6305,17 @@ a.badge:focus {
     .navbar .brand {
         padding: 10px 10px 10px 10px;
     }
+
+    .navbar .nav > li > .dropdown-menu:before {
+        display: none;
+    }
+
+    .navbar .nav > li > .dropdown-menu:after {
+        display: none;
+    }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .navbar .nav > li {
         float: none;
     }

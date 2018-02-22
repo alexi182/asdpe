@@ -6198,8 +6198,8 @@ a.badge:focus {
     float: right;
     margin-right: 15px;
     padding: 9px 10px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-color: transparent;
     background-image: none;
     border: 1px solid transparent;
@@ -6293,17 +6293,17 @@ a.badge:focus {
         float: none;
     }
 
-    .btn-group.pull-right {
+    /*.btn-group.pull-right {
         float: none;
-    }
+    }*/
 
-    .navbar-inner {
+  /*  .navbar-inner {
         padding-right: 0px;
         padding-left: 0px;
-    }
+    }*/
 
     .navbar .brand {
-        padding: 10px 10px 10px 10px;
+        padding: 14px 10px 10px 0px;
     }
 
     .navbar .nav > li > .dropdown-menu:before {
@@ -6323,6 +6323,11 @@ a.badge:focus {
         text-align: center;
         float: none;
         margin: 0 0px 0 0;
+    }
+
+    .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .navbar-nav .open .dropdown-menu {
@@ -6347,5 +6352,12 @@ a.badge:focus {
         color: #333;
         background-color: transparent;
         background-image: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .navbar-inner {
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }

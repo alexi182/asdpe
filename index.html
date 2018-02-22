@@ -55,21 +55,24 @@
         <div class="container">
 
             <a class="brand" href="/"><i class="icon-home icon-black"></i></a>
+            <div class="navbar-header">
+                <div class="btn-group pull-right">
+                    <a class="btn" href="/office/"><i
+                            class="icon-user"></i>
+                        Вход в личный кабинет</a>
+                </div>
 
-            <div class="btn-group  pull-right">
-
-                <a class="btn" href="/office/"><i
-                        class="icon-user"></i>
-                    Вход в личный кабинет</a>
-
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
 
-            <div id="main-menu" class="nav-collapse collapse">
-
-                <ul class="nav" id="main-menu-left">
-
+            <div class="nav-collapse navbar-collapse collapse">
+                <ul class="nav navbar-nav">
                     <li><a href="/about/">О проекте</a></li>
-
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Непрерывное образование <b class="caret"></b></a>
                         <ul class="dropdown-menu" id="swatch-menu">
@@ -102,7 +105,6 @@
                     </li>
 
                 </ul>
-
             </div>
         </div>
     </div>
@@ -371,7 +373,10 @@ $('.carousel').carousel()
 
 </div>
 
-<script src="/bundles/iphpcore/bootstrap/js/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<script src="bundles/iphpcore/bootstrap/js/bootstrap.js"></script>
 <script src="/js/bootbox.js"></script>
 
 <script>
